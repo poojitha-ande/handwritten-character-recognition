@@ -1,5 +1,4 @@
 #Importing all the necessary Libraries
-
 import random
 import pandas as pd
 import numpy as np
@@ -11,12 +10,10 @@ from tensorflow.keras.layers import Dense, Conv2D, Flatten, MaxPooling2D, Dropou
 import matplotlib.pyplot as plt
 
 #Reading the dataset
-
 data = pd.read_csv('english.csv')
 data
 
 #Creating the lists and adding images into that empty lists 
-
 images = []
 labels = []
 
@@ -36,7 +33,6 @@ labels = np.array(labels)
 images = images / 255.0
 
 #Label Encoding
-
 from sklearn.preprocessing import LabelEncoder
 
 label_encoder = LabelEncoder()
@@ -63,7 +59,6 @@ test_loss, test_acc = model.evaluate(images, labels)
 print(f'Test accuracy: {test_acc}')
 
 #Plotting the graphs for model accuracy and model loss
-
 plt.plot(history.history['accuracy'])
 plt.plot(history.history['val_accuracy'])
 plt.title('Model accuracy')
@@ -83,7 +78,6 @@ plt.show()
 import random
 
 #Predicting and to display the random images 
-
 def predict_and_display_random_images(model, images, labels, label_encoder, num_images=1):
     random_indices = random.sample(range(len(images)), num_images)
     random_images = images[random_indices]
